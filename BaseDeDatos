@@ -1,0 +1,117 @@
+# ************************************************************
+# Sequel Pro SQL dump
+# Version 4135
+#
+# http://www.sequelpro.com/
+# http://code.google.com/p/sequel-pro/
+#
+# Host: localhost (MySQL 5.5.38)
+# Database: productos
+# Generation Time: 2014-12-05 21:58:00 +0000
+# ************************************************************
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table categorias
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `categorias`;
+
+CREATE TABLE `categorias` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `categorias` WRITE;
+/*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
+
+INSERT INTO `categorias` (`id`, `nombre`)
+VALUES
+	(1,'Oral'),
+	(2,'Sublingual'),
+	(3,'Parental'),
+	(4,'Rectal'),
+	(5,'Tópica'),
+	(6,'Liposoluble'),
+	(7,'Inhalada'),
+	(8,'Hidrosoluble'),
+	(9,'Transdermicos');
+
+/*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table productos
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `productos`;
+
+CREATE TABLE `productos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombreProducto` varchar(255) NOT NULL DEFAULT '',
+  `concentracion` varchar(255) NOT NULL,
+  `precioProducto` varchar(255) NOT NULL DEFAULT '',
+  `imagen` varchar(255) NOT NULL DEFAULT '',
+  `categoria_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `productos` WRITE;
+/*!40000 ALTER TABLE `productos` DISABLE KEYS */;
+
+INSERT INTO `productos` (`id`, `nombreProducto`, `concentracion`, `precioProducto`, `imagen`, `categoria_id`)
+VALUES
+	(1,'Midolen','100mg.','$40.00','oral_1.jpg',1),
+	(2,'Ácido Retinoico ','0.05gr.','$28.00','oral_2.jpg',1),
+	(3,'Fluzor','100mg','$20.99','oral_3.jpg',1),
+	(4,'Nafluryl-OR','5mg. ','$56.99','oral_4.jpg',1),
+	(5,'Abstral','800mkg.','$110.13','sublingual_1.jpg',2),
+	(6,'Gammadol','25mg.','$110.00','sublingual_2.jpg',2),
+	(7,'Dolac T2','30mg.','$78.00','sublingual_3.jpg',2),
+	(8,'Hepaphil ','5ml. ','$35.99','parental_1.jpg',3),
+	(9,'Low-Carb','450gr.','$78.99','parental_2.jpg',3),
+	(11,'Quixom','20mg.','$89.00','rectal_1.jpg',4),
+	(12,'Novagon ','30mg.','$90.00','rectal_2.jpg',4),
+	(13,'Phlebodia','600mg.','$79.00','rectal_3.jpg',4),
+	(14,'Lidocaína','60mg. ','$93.00','rectal_4.jpg',4),
+	(15,'Ketoconazol','250ml.','$54.00','topico_1.jpg',5),
+	(16,'Gel post solar','28gr.','$23.00','topico_2.jpg',5),
+	(17,'Argemol','125gr.','$56.00','topico_3.jpg',5),
+	(18,'SimiBlock','10,00mcg.','$60.30','topico_4.jpg',5),
+	(19,'A-D-Kan','3ml.','$200.00','vitaminasLiposolubles_1.jpg',6),
+	(20,'Bedoyecta','30mg.','$120.00','vitaminasLiposolubles_2.jpg',6),
+	(21,'Bonadoxina','50mg.','$180.00','vitaminasLiposolubles_3.jpg',6),
+	(22,'E-400','100mg.','$138.40','vitaminasLiposolubles_4.jpg',6),
+	(23,'Amoxipenil Bronquial ','120ml.','$170.00','inhalada_1.jpg',7),
+	(24,'Flixotide ','50mcg.','$205.76','inhalada_2.jpg',7),
+	(25,'Flutivent ','125mcg.','$182.67','inhalada_3.jpg',7),
+	(26,'\rIpratopio\r','25mg.','$ 40.86','inhalada_4.jpg',7),
+	(27,'Aliopurinol ','300mg ','$211.79','vitaminasHidrosolubles_1.jpg',8),
+	(28,'Apasmo compuesto ','X20 ','$22.12','vitaminasHidrosolubles_2.jpg',8),
+	(29,'B COMPLEX VITAMIN ','30mg.','$167.20','vitaminasHidrosolubles_3.jpg',8),
+	(30,'C-500','1000mg.','$200.00','vitaminasHidrosolubles_4.jpg',8),
+	(31,'EVRA','60mg.','$130.00','transdermicos_1.jpg',9),
+	(32,'EXELON','120/18mg.','$80.00','transdermicos_2.jpg',9),
+	(33,'Fenodid','0.25mg.','$200.00','transdermicos_3.jpg',9),
+	(34,'Transtec','200mg.','$271.00','transdermicos_4.jpg',9);
+
+/*!40000 ALTER TABLE `productos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
